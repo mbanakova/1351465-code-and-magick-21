@@ -28,7 +28,7 @@ var getMaxElement = function (arr) {
   return maxElement;
 };
 
-window.renderStatistics = function (ctx, players, points) {
+window.renderStatistics = function (ctx, names, times) {
   renderCloud(
     ctx,
     CLOUD_X + GAP,
@@ -48,22 +48,22 @@ window.renderStatistics = function (ctx, players, points) {
   ctx.fillText('Ура вы победили!', CLOUD_X + FONT_GAP + GAP, FONT_GAP + GAP + TEXT_HEIGHT);
   ctx.fillText('Список результатов:', CLOUD_X + FONT_GAP + GAP, FONT_GAP + GAP + TEXT_HEIGHT + FONT_GAP);
 
-  // var players = ['Вы', 'Кекс', 'Катя', 'Игорь'];
-  // var points = [2725, 4025, 1244, 1339];
+  // var names = ['Вы', 'Кекс', 'Катя', 'Игорь'];
+  // var times = [2725, 4025, 1244, 1339];
 
-  var maxPoints = getMaxElement(points);
+  var maxTimes = getMaxElement(times);
 
-  for (var i = 0; i < players.length; i++) {
+  for (var i = 0; i < names.length; i++) {
 
-    var indention = Math.floor(BAR_HEIGHT - (BAR_HEIGHT * points[i] / maxPoints));
+    var indention = Math.floor(BAR_HEIGHT - (BAR_HEIGHT * times[i] / maxTimes));
 
     ctx.fillText(
-      Math.round(points[i]),
+      Math.round(times[i]),
       CLOUD_X + BAR_WIDTH + (BAR_GAP + BAR_WIDTH) * i,
       FONT_GAP + TEXT_HEIGHT + FONT_GAP + TEXT_HEIGHT + FONT_GAP + indention
     );
 
-    if (players[i].includes('Вы')) {
+    if (names[i].includes('Вы')) {
       ctx.fillStyle = 'rgba(255, 0, 0, 1)';
     } else {
       var saturation = function (max) {
@@ -81,13 +81,13 @@ window.renderStatistics = function (ctx, players, points) {
       CLOUD_X + BAR_WIDTH + (BAR_GAP + BAR_WIDTH) * i,
       CLOUD_Y + FONT_GAP + TEXT_HEIGHT + FONT_GAP + TEXT_HEIGHT + FONT_GAP + indention,
       BAR_WIDTH,
-      BAR_HEIGHT * points[i] / maxPoints
+      BAR_HEIGHT * times[i] / maxTimes
     );
-    console.log('отступ' + ' ' + Math.floor(BAR_HEIGHT - (BAR_HEIGHT * points[i] / maxPoints)));
+    console.log('отступ' + ' ' + Math.floor(BAR_HEIGHT - (BAR_HEIGHT * times[i] / maxTimes)));
 
     ctx.fillStyle = '#000';
     ctx.fillText(
-      players[i],
+      names[i],
       CLOUD_X + BAR_WIDTH + (BAR_GAP + BAR_WIDTH) * i,
       CLOUD_Y + FONT_GAP + TEXT_HEIGHT + FONT_GAP + TEXT_HEIGHT + FONT_GAP + BAR_HEIGHT + FONT_GAP
     );
