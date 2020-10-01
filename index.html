@@ -61,13 +61,13 @@
 
     <div class="demo"></div>
 
-    <div class="setup-open">
+    <button class="setup-open" type="button">
       <img src="img/user-1.jpg" class="setup-open-icon">
-    </div>
+    </button>
   </header>
 
   <div class="overlay setup hidden">
-    <form class="setup-wizard-form" method="post" enctype="multipart/form-data" autocomplete="off">
+    <form class="setup-wizard-form" method="post" action="https://javascript.pages.academy/code-and-magick" enctype="multipart/form-data" autocomplete="off">
 
       <div class="setup-title">
         <div class="setup-user">
@@ -76,11 +76,11 @@
             <input type="file" name="avatar">
           </div>
           <label>
-            <input type="text" name="username" maxlength="25" required class="setup-user-name" value="Синий Пендальф" />
+            <input type="text" name="username" minlength="2" maxlength="25" required class="setup-user-name" value="Синий Пендальф" />
           </label>
         </div>
 
-        <span class="setup-close">&times;</span>
+        <button class="setup-close" type="button">&times;</button>
       </div>
 
 
@@ -103,9 +103,9 @@
           <div class="setup-wizard-wrap">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 62 86" class="setup-wizard">
               <g class="wizard">
-                <use xlink:href="#wizard-coat" class="wizard-coat" style="fill: #6589a4"></use>
+                <use xlink:href="#wizard-coat" class="wizard-coat" id="wizard-coat" style="fill: #6589a4"></use>
                 <use xlink:href="#wizard-head" class="wizard-head"></use>
-                <use xlink:href="#wizard-eyes" class="wizard-eyes"></use>
+                <use xlink:href="#wizard-eyes" class="wizard-eyes" id="wizard-eyes"></use>
                 <use xlink:href="#wizard-hands" class="wizard-hands"></use>
               </g>
             </svg>
@@ -116,7 +116,7 @@
 
         <div class="setup-fireball-wrap">
           <div class="setup-fireball"></div>
-          <input type="hidden" name="fireball-color" value="#ee4830">
+          <input type="hidden" name="fireball-color" value="#ee4830" id="wizard-fireball">
         </div>
 
         <div class="setup-artifacts" dropzone="move">
@@ -152,7 +152,7 @@
           </div>
         </div>
 
-        <button class="button setup-submit">Сохранить</button>
+        <button class="button setup-submit" type="submit">Сохранить</button>
       </div>
     </form>
   </div>
