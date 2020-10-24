@@ -23,7 +23,7 @@
     window.variables.wizardSetupWindow.classList.add(`hidden`);
   };
 
-  const submitInvalidForm = function (error) {
+  const errorHandler = function (error) {
     const node = document.createElement(`div`);
     node.style = `z-index: 100; margin: 15px auto; text-align: center; background-color: transparent;`;
     node.style.position = `absolute`;
@@ -36,10 +36,14 @@
   };
 
   const submitHandler = function (evt) {
-    window.backend.save(new FormData(form), submitValidForm, submitInvalidForm);
+    window.backend.save(new FormData(form), submitValidForm, errorHandler);
     evt.preventDefault();
   };
 
   const form = window.variables.wizardSetupWindow.querySelector(`.setup-wizard-form`);
   form.addEventListener(`submit`, submitHandler);
+
+  window.validation = {
+    errorHandler
+  };
 })();

@@ -3,7 +3,7 @@
 (function () {
   const TIMEOUT = 10000;
   const URL_GET = `https://21.javascript.pages.academy/code-and-magick/data`;
-  const URL_SEND = `https://21.javascript.pages.academy/code-and-magickc`;
+  const URL_SEND = `https://21.javascript.pages.academy/code-and-magick`;
   window.backend = {};
 
   const loadData = function (onLoad, onError) {
