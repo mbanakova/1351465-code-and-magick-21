@@ -6,6 +6,6 @@
   };
 
   window.setup = {
-    getRandomIndex: getRandomIndex
+    getRandomIndex
   };
 })();

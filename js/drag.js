@@ -1,7 +1,6 @@
 'use strict';
 
 (function () {
-
   const dialogHandle = window.variables.wizardSetupWindow.querySelector(`.upload`);
 
 

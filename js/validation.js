@@ -18,4 +18,32 @@
 
     userNameInput.reportValidity();
   });
+
+  const submitValidForm = function () {
+    window.variables.wizardSetupWindow.classList.add(`hidden`);
+  };
+
+  const errorHandler = function (error) {
+    const node = document.createElement(`div`);
+    node.style = `z-index: 100; margin: 15px auto; text-align: center; background-color: transparent;`;
+    node.style.position = `absolute`;
+    node.style.left = 0;
+    node.style.right = 0;
+    node.style.fontSize = `36px`;
+
+    node.textContent = error;
+    document.body.insertAdjacentElement(`afterbegin`, node);
+  };
+
+  const submitHandler = function (evt) {
+    window.backend.save(new FormData(form), submitValidForm, errorHandler);
+    evt.preventDefault();
+  };
+
+  const form = window.variables.wizardSetupWindow.querySelector(`.setup-wizard-form`);
+  form.addEventListener(`submit`, submitHandler);
+
+  window.validation = {
+    errorHandler
+  };
 })();
